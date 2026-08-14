@@ -1,0 +1,14 @@
+{
+  "format": "github-design-task-tracker",
+  "version": 1,
+  "exportedAt": "2026-08-14T09:40:47.472Z",
+  "statuses": {
+    "microsoft/copilot-intellij#14878": "Done",
+    "microsoft/copilot-intellij#15272": "Done",
+    "microsoft/copilot-intellij#15287": "Done",
+    "microsoft/copilot-intellij#15288": "Done",
+    "microsoft/copilot-intellij#15290": "In progress",
+    "microsoft/copilot-intellij#15465": "Done",
+    "microsoft/copilot-intellij#15485": "In progress"
+  }
+}
