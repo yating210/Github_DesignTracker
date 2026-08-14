@@ -1,5 +1,6 @@
 node_modules/
-dist/
 extension-key.pem
 *.log
 .DS_Store
+
+# dist/ 故意提交：这样在新电脑上无需安装 Node 即可直接加载扩展

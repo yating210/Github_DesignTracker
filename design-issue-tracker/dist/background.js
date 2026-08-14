@@ -1,0 +1,1 @@
+(()=>{"use strict";chrome.runtime.onInstalled.addListener(()=>{console.log("Design Issue Tracker extension installed")}),chrome.runtime.onMessage.addListener((e,s,n)=>{"ping"===e.action&&n({status:"ok"})})})();

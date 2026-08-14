@@ -14,21 +14,28 @@
 
 生效页面：`github.com/issues*` 与 `github.com/<owner>/<repo>/issues*`。
 
-## 构建
+## 安装
+
+`dist/` 已随仓库提交，**普通使用不需要安装 Node.js，也不需要构建**。
+
+1. 从 GitHub 下载本仓库（Code → Download ZIP，或 `git clone`），解压到一个**固定不会再移动**的位置
+2. 打开 `chrome://extensions/`
+3. 右上角开启 **开发者模式**
+4. 点 **加载未打包的扩展程序** → 选择 `design-issue-tracker/dist` 目录（注意是 `dist`，不是项目根目录）
+5. 确认扩展 ID 是 `pnepdkejfkkhmbiagdmhoanoilocbcpg`（ID 不对说明选错了目录）
+6. 打开 `https://github.com/issues/assigned`，硬刷新（Cmd/Ctrl+Shift+R）
+
+## 修改代码后重新构建
+
+只有改了 `src/` 里的代码才需要：
 
 ```bash
 npm install
-npm run build      # 产物在 dist/
+npm run build      # 产物覆盖到 dist/
 ```
 
-## 安装
+然后回到 `chrome://extensions/` 点扩展卡片上的 🔄 刷新即可。
 
-1. 打开 `chrome://extensions/`
-2. 右上角开启 **开发者模式**
-3. **加载未打包的扩展程序** → 选择本项目的 `dist/` 目录
-4. 打开 `https://github.com/issues/assigned`，硬刷新（Cmd/Ctrl+Shift+R）
-
-> 开发时重新构建后，回到 `chrome://extensions/` 点扩展卡片上的 🔄 刷新即可。
 > 不要在 Chrome 正加载扩展时删除 `dist/` 目录，否则会报
 > `Manifest is not valid JSON`（webpack 已配置 `output.clean`，会原地覆盖而非删目录）。
 
@@ -74,10 +81,11 @@ npm run build      # 产物在 dist/
 
 ### 在第二台电脑上启用
 
-1. 第一台：点扩展图标 → **导出备份**（保险起见）
-2. 把整个项目（或仅 `dist/`）拷到第二台
-3. 第二台：`chrome://extensions/` → 加载未打包的扩展程序 → 选 `dist/`
-4. 等待同步；若没同步过来，用第 1 步的备份文件**导入**即可
+1. **第一台**：点扩展图标 → **导出备份**，保存 JSON 文件（保险起见，先做这步）
+2. **第二台**：下载仓库 → `chrome://extensions/` → 开发者模式 → 加载未打包的扩展程序 → 选 `design-issue-tracker/dist`
+3. 确认两台电脑登录的是**同一个 Google 账号**，且 Chrome 设置里「同步」已开启
+4. 打开 `https://github.com/issues/assigned`，硬刷新，等几十秒看状态是否同步过来
+5. 若没同步过来，点扩展图标 → **导入备份** → 选第 1 步的 JSON 文件
 
 ### 同步限制
 
