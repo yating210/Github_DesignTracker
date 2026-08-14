@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub Design Task Tracker",
+  "version": "1.0.0",
+  "description": "Track your design work progress on GitHub issues without changing their status",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzp5N1stjmctEeWTebKCO7hKmYmDxQYS+K43qR0XqcabqbojrrKBNXZ0Bj/6h2uUhL37+HbUP3x6JEezWRt5vt80IBjbYSi62fMehvo16LEI0d8Z+AOufwEVP9g+He0Utb+KE7oNkYaz8fR+0TiCYYTW3WAgnjFI5v7Hy4lRehcLmgEk9ijP88ou7CkkwjGg7RET643a/Q7z2Rq2/TyIsNMoRyG4B/28CwED983h5KnTFDLMUYL2cXsSeuTmzsq0YRXpZKluZ2JpsvHEWvsjYmXU9cnZaZqgyXUrm6YMBa4EU6GR+g+ZLSd69heyeGNiCpbxEFjDqUnc2lnMf3+SbIQIDAQAB",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://github.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://github.com/issues*",
+        "https://github.com/*/issues*"
+      ],
+      "js": [
+        "list-view-tracker.js"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "/icons/icon-16.png",
+    "48": "/icons/icon-48.png",
+    "128": "/icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "Design Task Tracker",
+    "default_popup": "popup.html"
+  }
+}

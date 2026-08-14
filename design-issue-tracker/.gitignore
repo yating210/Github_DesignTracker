@@ -1,0 +1,5 @@
+node_modules/
+dist/
+extension-key.pem
+*.log
+.DS_Store
